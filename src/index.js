@@ -1,6 +1,8 @@
-const app = require('./app');
-const loader = requirer('./loaders');
+const app = require("./app");
+const Loader = requirer("./loaders");
 
-loader.start();
+Loader.start();
 
-app.listen(3333, () => console.log("Server started..."));
+app.listen(3333, () => {
+  console.log("Server started...");
+});
