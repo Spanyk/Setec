@@ -50,13 +50,13 @@ class UserController {
     const { id }  = req.params;
 
     if(!id) {
-        return res.status(400).json({ message: 'Id is invalid'})
+        return res.status(400).json({ message: 'Id is invalid...'})
     }
 
-    const currentUser = users.find((user) => user.id == id);
+    const currentUser = users.find((user) => user.id === parseInt(id))
 
     if(!currentUser) {
-        return res.status(400).json({ message: 'User not found'});
+        return res.status(404).json({ message: 'User not found...'});
     }
 
     return res.status(200).json(currentUser);
