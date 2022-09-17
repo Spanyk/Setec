@@ -46,7 +46,21 @@ class UserController {
     return res.status(200).json(users);
   }
 
-  show() {}
+  show(req, res) {
+    const { id }  = req.params;
+
+    if(!id) {
+        return res.status(400).json({ message: 'Id is invalid'})
+    }
+
+    const currentUser = users.find((user) => user.id == id);
+
+    if(!currentUser) {
+        return res.status(400).json({ message: 'User not found'});
+    }
+
+    return res.status(200).json(currentUser);
+  }
 
   update() {}
 }
